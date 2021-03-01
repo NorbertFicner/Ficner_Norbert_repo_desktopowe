@@ -5,6 +5,9 @@
  */
 package com.mycompany.kalkulator;
 
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author zalman
@@ -324,6 +327,11 @@ public class kalkulator extends javax.swing.JFrame {
         nf_jMenu_Tools.setText("Tools");
 
         jMenuItemIleDniMieDat.setText("Ile dni pomiedzy datami");
+        jMenuItemIleDniMieDat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemIleDniMieDatActionPerformed(evt);
+            }
+        });
         nf_jMenu_Tools.add(jMenuItemIleDniMieDat);
 
         nf_jMenuBar.add(nf_jMenu_Tools);
@@ -479,6 +487,12 @@ public class kalkulator extends javax.swing.JFrame {
         wynik = Math.sqrt(liczba1);
         nf_jTextFieldObliczenia.setText(wynik + "");     
     }//GEN-LAST:event_nf_jButtonPierwiastkowanieActionPerformed
+
+    private void jMenuItemIleDniMieDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemIleDniMieDatActionPerformed
+        DateTimeFormatter formatter  = DateTimeFormatter.ofPattern("dd MM yyyy");
+        JOptionPane.showInputDialog("Wprowadz date w formacie dd mm yyyy np: 01 01 2000");
+        
+    }//GEN-LAST:event_jMenuItemIleDniMieDatActionPerformed
 
     /**
      * @param args the command line arguments
