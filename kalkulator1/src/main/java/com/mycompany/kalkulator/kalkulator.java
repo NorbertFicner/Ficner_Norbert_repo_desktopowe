@@ -5,6 +5,7 @@
  */
 package com.mycompany.kalkulator;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
@@ -490,8 +491,12 @@ public class kalkulator extends javax.swing.JFrame {
 
     private void jMenuItemIleDniMieDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemIleDniMieDatActionPerformed
         DateTimeFormatter formatter  = DateTimeFormatter.ofPattern("dd MM yyyy");
-        JOptionPane.showInputDialog("Wprowadz date w formacie dd mm yyyy np: 01 01 2000");
-        
+        String data = JOptionPane.showInputDialog("Wprowadz date w formacie dd mm yyyy np: 01 01 2000");
+        //nf_jTextFieldObliczenia.setText(data);
+        LocalDate ldnow = LocalDate.now();
+        LocalDate ldinput = LocalDate.parse(data, formatter);
+        //nf_jTextFieldObliczenia.setText(ldnow + " " + ldinput);
+
     }//GEN-LAST:event_jMenuItemIleDniMieDatActionPerformed
 
     /**
