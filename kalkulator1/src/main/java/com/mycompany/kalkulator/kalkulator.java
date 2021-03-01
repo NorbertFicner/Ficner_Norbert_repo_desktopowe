@@ -7,6 +7,7 @@ package com.mycompany.kalkulator;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import javax.swing.JOptionPane;
 
 /**
@@ -496,7 +497,8 @@ public class kalkulator extends javax.swing.JFrame {
         LocalDate ldnow = LocalDate.now();
         LocalDate ldinput = LocalDate.parse(data, formatter);
         //nf_jTextFieldObliczenia.setText(ldnow + " " + ldinput);
-
+        long days = ChronoUnit.DAYS.between(ldinput, ldnow);
+        //nf_jTextFieldObliczenia.setText("Ilosc dni: " + days);
     }//GEN-LAST:event_jMenuItemIleDniMieDatActionPerformed
 
     /**
