@@ -54,6 +54,8 @@ public class kalkulator extends javax.swing.JFrame {
         nf_jMenuPlik = new javax.swing.JMenu();
         nf_jCheckBoxMenuItemZapis = new javax.swing.JCheckBoxMenuItem();
         nf_jMenuItemZamknij = new javax.swing.JMenuItem();
+        nf_jMenu_Tools = new javax.swing.JMenu();
+        jMenuItemIleDniMieDat = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kalkulator Norbert Ficner");
@@ -319,6 +321,13 @@ public class kalkulator extends javax.swing.JFrame {
 
         nf_jMenuBar.add(nf_jMenuPlik);
 
+        nf_jMenu_Tools.setText("Tools");
+
+        jMenuItemIleDniMieDat.setText("Ile dni pomiedzy datami");
+        nf_jMenu_Tools.add(jMenuItemIleDniMieDat);
+
+        nf_jMenuBar.add(nf_jMenu_Tools);
+
         setJMenuBar(nf_jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -509,6 +518,7 @@ public class kalkulator extends javax.swing.JFrame {
     double liczba1, liczba2,wynik;
     int wybordzialania;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jMenuItemIleDniMieDat;
     private javax.swing.JButton nf_jButton0;
     private javax.swing.JButton nf_jButton1;
     private javax.swing.JButton nf_jButton2;
@@ -533,6 +543,7 @@ public class kalkulator extends javax.swing.JFrame {
     private javax.swing.JMenuBar nf_jMenuBar;
     private javax.swing.JMenuItem nf_jMenuItemZamknij;
     private javax.swing.JMenu nf_jMenuPlik;
+    private javax.swing.JMenu nf_jMenu_Tools;
     private javax.swing.JPanel nf_jPanel1;
     private javax.swing.JTextField nf_jTextFieldObliczenia;
     // End of variables declaration//GEN-END:variables
