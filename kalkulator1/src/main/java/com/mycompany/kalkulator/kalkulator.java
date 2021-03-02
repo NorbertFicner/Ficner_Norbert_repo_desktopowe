@@ -7,6 +7,7 @@ package com.mycompany.kalkulator;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import javax.swing.JOptionPane;
 
@@ -493,15 +494,28 @@ public class kalkulator extends javax.swing.JFrame {
     private void jMenuItemIleDniMieDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemIleDniMieDatActionPerformed
         DateTimeFormatter formatter  = DateTimeFormatter.ofPattern("dd MM yyyy");
         
-        String data = JOptionPane.showInputDialog("Wprowadz date w formacie dd mm yyyy np: 01 01 2000");
+        String info = "\n";
+        while(!info.equals("ok")){
+         String data = JOptionPane.showInputDialog("Wprowadz date w formacie dd mm yyyy np: 01 01 2000\n"       
+        +""+info);
         if(data != null && data.length()== 10){
              //nf_jTextFieldObliczenia.setText(data);
         LocalDate ldnow = LocalDate.now();
-        LocalDate ldinput = LocalDate.parse(data, formatter);
-        //nf_jTextFieldObliczenia.setText(ldnow + " " + ldinput);
-        long days = ChronoUnit.DAYS.between(ldinput, ldnow);
-        //nf_jTextFieldObliczenia.setText("Ilosc dni: " + days);
-        JOptionPane.showMessageDialog(rootPane,days + " dni","Ilość dni", HEIGHT);
+        try{
+            LocalDate ldinput = LocalDate.parse(data, formatter);
+            //nf_jTextFieldObliczenia.setText(ldnow + " " + ldinput);
+            long days = ChronoUnit.DAYS.between(ldinput, ldnow);
+             //nf_jTextFieldObliczenia.setText("Ilosc dni: " + days);
+            JOptionPane.showMessageDialog(rootPane,days + " dni","Ilość dni", HEIGHT);
+            info = "ok";
+        }
+        catch(DateTimeParseException ex){
+            info = "Wprowadzono zły format daty!!";
+         }    
+        }      
+        else{
+            info = "ok";
+        }
         }      
         
     }//GEN-LAST:event_jMenuItemIleDniMieDatActionPerformed
