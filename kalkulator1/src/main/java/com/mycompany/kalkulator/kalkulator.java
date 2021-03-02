@@ -492,13 +492,18 @@ public class kalkulator extends javax.swing.JFrame {
 
     private void jMenuItemIleDniMieDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemIleDniMieDatActionPerformed
         DateTimeFormatter formatter  = DateTimeFormatter.ofPattern("dd MM yyyy");
+        
         String data = JOptionPane.showInputDialog("Wprowadz date w formacie dd mm yyyy np: 01 01 2000");
-        //nf_jTextFieldObliczenia.setText(data);
+        if(data != null && data.length()== 10){
+             //nf_jTextFieldObliczenia.setText(data);
         LocalDate ldnow = LocalDate.now();
         LocalDate ldinput = LocalDate.parse(data, formatter);
         //nf_jTextFieldObliczenia.setText(ldnow + " " + ldinput);
         long days = ChronoUnit.DAYS.between(ldinput, ldnow);
         //nf_jTextFieldObliczenia.setText("Ilosc dni: " + days);
+        JOptionPane.showMessageDialog(rootPane,days + " dni","Ilość dni", HEIGHT);
+        }      
+        
     }//GEN-LAST:event_jMenuItemIleDniMieDatActionPerformed
 
     /**
