@@ -27,21 +27,196 @@ public class ListaZakupow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanelWprowadzZakupy = new javax.swing.JPanel();
+        jLabelWpiszcoKup = new javax.swing.JLabel();
+        jLabelPodajWar = new javax.swing.JLabel();
+        jLabelTypZakTow = new javax.swing.JLabel();
+        jLabelDatZak = new javax.swing.JLabel();
+        jTextFieldWpiszCoKupiles = new javax.swing.JTextField();
+        jTextFieldPodajWartosc = new javax.swing.JTextField();
+        jComboBoxTypZakupionegoTowaru = new javax.swing.JComboBox<>();
+        jTextFieldDataZakupu = new javax.swing.JTextField();
+        jButtonZapisz = new javax.swing.JButton();
+        jLabelWydatkiZDzisiaj = new javax.swing.JLabel();
+        jLabelWydatkiZTygodnia = new javax.swing.JLabel();
+        jTextFieldWydatkiZDzisiaj = new javax.swing.JTextField();
+        jTextFieldWydatkiZTygodnia = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaText = new javax.swing.JTextArea();
+        jLabelDzisiejszeZakupy = new javax.swing.JLabel();
+        jPanelListaZakupow = new javax.swing.JPanel();
+        jMenuBar = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabelWpiszcoKup.setText("Wpisz co kupileś");
+
+        jLabelPodajWar.setText("Podaj wartość");
+
+        jLabelTypZakTow.setText("Typ zakupionego towaru");
+
+        jLabelDatZak.setText("Data zakupu:");
+
+        jTextFieldWpiszCoKupiles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldWpiszCoKupilesActionPerformed(evt);
+            }
+        });
+
+        jComboBoxTypZakupionegoTowaru.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButtonZapisz.setText("ZAPISZ");
+
+        jLabelWydatkiZDzisiaj.setText("Wydatki z dzisiaj: ");
+
+        jLabelWydatkiZTygodnia.setText("Wydatki z tygodnia:");
+
+        jTextFieldWydatkiZDzisiaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldWydatkiZDzisiajActionPerformed(evt);
+            }
+        });
+
+        jTextAreaText.setColumns(20);
+        jTextAreaText.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaText);
+
+        jLabelDzisiejszeZakupy.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelDzisiejszeZakupy.setText("Dzisiejsze zakupy");
+
+        javax.swing.GroupLayout jPanelWprowadzZakupyLayout = new javax.swing.GroupLayout(jPanelWprowadzZakupy);
+        jPanelWprowadzZakupy.setLayout(jPanelWprowadzZakupyLayout);
+        jPanelWprowadzZakupyLayout.setHorizontalGroup(
+            jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWprowadzZakupyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
+                        .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
+                                .addComponent(jTextFieldWpiszCoKupiles, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldPodajWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelDzisiejszeZakupy))
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxTypZakupionegoTowaru, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
+                    .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
+                        .addComponent(jLabelWpiszcoKup)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelPodajWar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelTypZakTow, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9))
+                    .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelWydatkiZTygodnia, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWprowadzZakupyLayout.createSequentialGroup()
+                                .addComponent(jLabelWydatkiZDzisiaj)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
+                .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldWydatkiZDzisiaj, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButtonZapisz, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldDataZakupu, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelDatZak, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTextFieldWydatkiZTygodnia, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38))
+        );
+        jPanelWprowadzZakupyLayout.setVerticalGroup(
+            jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelWpiszcoKup)
+                    .addComponent(jLabelPodajWar)
+                    .addComponent(jLabelTypZakTow)
+                    .addComponent(jLabelDatZak))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldWpiszCoKupiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxTypZakupionegoTowaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDataZakupu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPodajWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDzisiejszeZakupy)
+                    .addComponent(jButtonZapisz, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
+                        .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldWydatkiZDzisiaj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelWydatkiZDzisiaj))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelWydatkiZTygodnia)
+                            .addComponent(jTextFieldWydatkiZTygodnia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Wprowadź zakupy", jPanelWprowadzZakupy);
+
+        javax.swing.GroupLayout jPanelListaZakupowLayout = new javax.swing.GroupLayout(jPanelListaZakupow);
+        jPanelListaZakupow.setLayout(jPanelListaZakupowLayout);
+        jPanelListaZakupowLayout.setHorizontalGroup(
+            jPanelListaZakupowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 523, Short.MAX_VALUE)
+        );
+        jPanelListaZakupowLayout.setVerticalGroup(
+            jPanelListaZakupowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 618, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Lista zakupów", jPanelListaZakupow);
+
+        jMenu1.setText("File");
+        jMenuBar.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar.add(jMenu2);
+
+        setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldWydatkiZDzisiajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldWydatkiZDzisiajActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldWydatkiZDzisiajActionPerformed
+
+    private void jTextFieldWpiszCoKupilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldWpiszCoKupilesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldWpiszCoKupilesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +254,28 @@ public class ListaZakupow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonZapisz;
+    private javax.swing.JComboBox<String> jComboBoxTypZakupionegoTowaru;
+    private javax.swing.JLabel jLabelDatZak;
+    private javax.swing.JLabel jLabelDzisiejszeZakupy;
+    private javax.swing.JLabel jLabelPodajWar;
+    private javax.swing.JLabel jLabelTypZakTow;
+    private javax.swing.JLabel jLabelWpiszcoKup;
+    private javax.swing.JLabel jLabelWydatkiZDzisiaj;
+    private javax.swing.JLabel jLabelWydatkiZTygodnia;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelListaZakupow;
+    private javax.swing.JPanel jPanelWprowadzZakupy;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextAreaText;
+    private javax.swing.JTextField jTextFieldDataZakupu;
+    private javax.swing.JTextField jTextFieldPodajWartosc;
+    private javax.swing.JTextField jTextFieldWpiszCoKupiles;
+    private javax.swing.JTextField jTextFieldWydatkiZDzisiaj;
+    private javax.swing.JTextField jTextFieldWydatkiZTygodnia;
     // End of variables declaration//GEN-END:variables
 }
