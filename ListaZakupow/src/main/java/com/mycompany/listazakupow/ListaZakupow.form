@@ -91,7 +91,7 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jTextFieldPodajWartosc" min="-2" pref="86" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabelDzisiejszeZakupy" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelDzisiejszeZakupyy" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="jComboBoxTypZakupionegoTowaru" min="-2" pref="120" max="-2" attributes="0"/>
@@ -149,7 +149,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelDzisiejszeZakupy" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDzisiejszeZakupyy" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonZapisz" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -254,7 +254,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabelDzisiejszeZakupy">
+            <Component class="javax.swing.JLabel" name="jLabelDzisiejszeZakupyy">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
