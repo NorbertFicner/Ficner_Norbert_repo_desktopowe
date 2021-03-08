@@ -5,6 +5,9 @@
  */
 package com.mycompany.listazakupow;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 /**
  *
  * @author zalman
@@ -16,6 +19,7 @@ public class ListaZakupow extends javax.swing.JFrame {
      */
     public ListaZakupow() {
         initComponents();
+        addKeyListenerTojTextFieldWpiszCoKupiles();
     }
 
     /**
@@ -45,7 +49,7 @@ public class ListaZakupow extends javax.swing.JFrame {
         jTextFieldWydatkiZTygodnia = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaText = new javax.swing.JTextArea();
-        jLabelDzisiejszeZakupyy = new javax.swing.JLabel();
+        jLabelDzisiejszeZakupy = new javax.swing.JLabel();
         jPanelListaZakupow = new javax.swing.JPanel();
         jMenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -96,8 +100,8 @@ public class ListaZakupow extends javax.swing.JFrame {
         jTextAreaText.setRows(5);
         jScrollPane1.setViewportView(jTextAreaText);
 
-        jLabelDzisiejszeZakupyy.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabelDzisiejszeZakupyy.setText("Dzisiejsze zakupy");
+        jLabelDzisiejszeZakupy.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelDzisiejszeZakupy.setText("Dzisiejsze zakupy");
 
         javax.swing.GroupLayout jPanelWprowadzZakupyLayout = new javax.swing.GroupLayout(jPanelWprowadzZakupy);
         jPanelWprowadzZakupy.setLayout(jPanelWprowadzZakupyLayout);
@@ -109,18 +113,20 @@ public class ListaZakupow extends javax.swing.JFrame {
                     .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
                         .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
-                                .addComponent(jTextFieldWpiszCoKupiles, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextFieldPodajWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabelDzisiejszeZakupyy))
-                        .addGap(18, 18, 18)
+                                .addComponent(jTextFieldWpiszCoKupiles)
+                                .addGap(14, 14, 14)
+                                .addComponent(jTextFieldPodajWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
+                                .addComponent(jLabelDzisiejszeZakupy)
+                                .addGap(18, 18, 18)))
                         .addComponent(jComboBoxTypZakupionegoTowaru, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10))
                     .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
                         .addComponent(jLabelWpiszcoKup)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelPodajWar)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelTypZakTow, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9))
                     .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
@@ -130,7 +136,8 @@ public class ListaZakupow extends javax.swing.JFrame {
                             .addComponent(jLabelWydatkiZTygodnia, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWprowadzZakupyLayout.createSequentialGroup()
                                 .addComponent(jLabelWydatkiZDzisiaj)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldWydatkiZDzisiaj, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -151,13 +158,13 @@ public class ListaZakupow extends javax.swing.JFrame {
                     .addComponent(jLabelDatZak))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldWpiszCoKupiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldWpiszCoKupiles, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxTypZakupionegoTowaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldDataZakupu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldPodajWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDataZakupu, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPodajWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDzisiejszeZakupyy)
+                    .addComponent(jLabelDzisiejszeZakupy)
                     .addComponent(jButtonZapisz, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +190,7 @@ public class ListaZakupow extends javax.swing.JFrame {
         );
         jPanelListaZakupowLayout.setVerticalGroup(
             jPanelListaZakupowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 618, Short.MAX_VALUE)
+            .addGap(0, 623, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Lista zakupów", jPanelListaZakupow);
@@ -252,12 +259,57 @@ public class ListaZakupow extends javax.swing.JFrame {
             }
         });
     }
+    private void addKeyListenerTojTextFieldWpiszCoKupiles(){
+        jTextFieldWpiszCoKupiles.addKeyListener(new KeyListener() {
+            @Override
+         
+            public void keyTyped(KeyEvent e) {
+                if(e.getKeyChar()==KeyEvent.VK_ENTER){
+                    System.out.println("Wprowadzono dane po nacisnienciu eneteru");
+                    jTextAreaText.setText(jTextFieldWpiszCoKupiles.getText());
+                }   
+            }
 
+            @Override
+            public void keyPressed(KeyEvent e) {
+                //System.out.println("2 keyTyped" + e.getKeyChar());
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                //System.out.println("3 keyTyped" + e.getKeyChar());
+            }
+        });
+    }
+    private void addKeyListenerTojTextFieldPodajWartosc(){
+        jTextFieldPodajWartosc.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+               char ch = e.getKeyChar();
+               if(ch == '0' || ch == '1' || ch == '2' ||ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7' || ch == '8' || ch =='9'){
+                    System.out.println("Naciesnieto cyfre " + ch);
+               }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+              
+            }
+        });
+    }
+
+        
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonZapisz;
     private javax.swing.JComboBox<String> jComboBoxTypZakupionegoTowaru;
     private javax.swing.JLabel jLabelDatZak;
-    private javax.swing.JLabel jLabelDzisiejszeZakupyy;
+    private javax.swing.JLabel jLabelDzisiejszeZakupy;
     private javax.swing.JLabel jLabelPodajWar;
     private javax.swing.JLabel jLabelTypZakTow;
     private javax.swing.JLabel jLabelWpiszcoKup;
