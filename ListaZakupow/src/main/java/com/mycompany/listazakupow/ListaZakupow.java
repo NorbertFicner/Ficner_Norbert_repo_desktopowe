@@ -316,7 +316,7 @@ public class ListaZakupow extends javax.swing.JFrame {
                  char ch = e.getKeyChar();
                if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE){
                    jTextFieldDataZakupu.setEditable(true); 
-                   //System.out.println("Naciesnieto cyfre " + ch);
+                  
                }
                else{
                    jTextFieldDataZakupu.setEditable(false);
