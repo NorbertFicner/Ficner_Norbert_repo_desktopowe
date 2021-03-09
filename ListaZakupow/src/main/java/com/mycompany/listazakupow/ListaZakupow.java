@@ -20,6 +20,8 @@ public class ListaZakupow extends javax.swing.JFrame {
     public ListaZakupow() {
         initComponents();
         addKeyListenerTojTextFieldWpiszCoKupiles();
+        addKeyListenerTojTextFieldPodajWartosc();
+        addKeyListenerTojjTextFieldDataZakupu();
     }
 
     /**
@@ -134,9 +136,7 @@ public class ListaZakupow extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelWydatkiZTygodnia, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWprowadzZakupyLayout.createSequentialGroup()
-                                .addComponent(jLabelWydatkiZDzisiaj)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(jLabelWydatkiZDzisiaj, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldWydatkiZDzisiaj, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,11 +157,12 @@ public class ListaZakupow extends javax.swing.JFrame {
                     .addComponent(jLabelTypZakTow)
                     .addComponent(jLabelDatZak))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldWpiszCoKupiles, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxTypZakupionegoTowaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldDataZakupu, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldPodajWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldPodajWartosc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldWpiszCoKupiles, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxTypZakupionegoTowaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldDataZakupu, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23)
                 .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDzisiejszeZakupy)
@@ -286,9 +287,14 @@ public class ListaZakupow extends javax.swing.JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                char ch = e.getKeyChar();
-               if(ch == '0' || ch == '1' || ch == '2' ||ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7' || ch == '8' || ch =='9'){
-                    System.out.println("Naciesnieto cyfre " + ch);
+               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE){
+                   jTextFieldPodajWartosc.setEditable(true); 
+                   //System.out.println("Naciesnieto cyfre " + ch);
                }
+               else{
+                   jTextFieldPodajWartosc.setEditable(false);
+               }
+                       
             }
 
             @Override
@@ -301,6 +307,35 @@ public class ListaZakupow extends javax.swing.JFrame {
               
             }
         });
+    }
+    
+    private void addKeyListenerTojjTextFieldDataZakupu(){
+        jTextFieldDataZakupu.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                 char ch = e.getKeyChar();
+               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE){
+                   jTextFieldDataZakupu.setEditable(true); 
+                   //System.out.println("Naciesnieto cyfre " + ch);
+               }
+               else{
+                   jTextFieldDataZakupu.setEditable(false);
+               }
+                       
+            }
+            
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+             
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+              
+            }
+        });
+        
     }
 
         
