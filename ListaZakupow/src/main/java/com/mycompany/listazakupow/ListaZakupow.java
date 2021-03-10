@@ -87,6 +87,11 @@ public class ListaZakupow extends javax.swing.JFrame {
         jComboBoxTypZakupionegoTowaru.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButtonZapisz.setText("ZAPISZ");
+        jButtonZapisz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonZapiszActionPerformed(evt);
+            }
+        });
 
         jLabelWydatkiZDzisiaj.setText("Wydatki z dzisiaj: ");
 
@@ -225,6 +230,22 @@ public class ListaZakupow extends javax.swing.JFrame {
     private void jTextFieldWpiszCoKupilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldWpiszCoKupilesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldWpiszCoKupilesActionPerformed
+    String AktualnyText;
+    private void jButtonZapiszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZapiszActionPerformed
+        String CoKupic = jTextFieldWpiszCoKupiles.getText();
+        String Wartosc = jTextFieldPodajWartosc.getText();
+        String KategoriaZakupu = (String) jComboBoxTypZakupionegoTowaru.getSelectedItem();
+        String DataZakupu = jTextFieldDataZakupu.getText();
+        String Zapis = ("" + CoKupic + ";" + Wartosc + ";" + KategoriaZakupu + ";" + DataZakupu);
+        String Tekst = jTextAreaText.getText();
+        AktualnyText =  AktualnyText + Zapis + "\n";
+        
+        jTextAreaText.setText(AktualnyText);
+        
+        jTextFieldWpiszCoKupiles.setText("");
+        jTextFieldPodajWartosc.setText("");
+        jTextFieldDataZakupu.setText("");
+    }//GEN-LAST:event_jButtonZapiszActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,12 +285,22 @@ public class ListaZakupow extends javax.swing.JFrame {
         jTextFieldWpiszCoKupiles.addKeyListener(new KeyListener() {
             @Override
          
-            public void keyTyped(KeyEvent e) {
-                if(e.getKeyChar()==KeyEvent.VK_ENTER){
-                    System.out.println("Wprowadzono dane po nacisnienciu eneteru");
-                    jTextAreaText.setText(jTextFieldWpiszCoKupiles.getText());
-                }   
+            public void keyTyped(KeyEvent e) {             
+                char ch = e.getKeyChar();
+                //int kodascii = (int)ch;
+                if(ch >= 65 && ch<= 90 || ch>=97 && ch<=122 || ch == 32 || ch == KeyEvent.VK_BACK_SPACE){
+                    jTextFieldWpiszCoKupiles.setEditable(true);
+                     //if(e.getKeyChar()==KeyEvent.VK_ENTER){
+                        //System.out.println("Wprowadzono dane po nacisnienciu eneteru");
+                        //jTextAreaText.setText(jTextFieldWpiszCoKupiles.getText());
+                }
+                else{
+                 jTextFieldWpiszCoKupiles.setEditable(false);
+
+             }
             }
+           
+            
 
             @Override
             public void keyPressed(KeyEvent e) {
@@ -314,9 +345,9 @@ public class ListaZakupow extends javax.swing.JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                  char ch = e.getKeyChar();
-               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE){
+               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE || ch == 32){
                    jTextFieldDataZakupu.setEditable(true); 
-                  
+                   //System.out.println("Naciesnieto cyfre " + ch);
                }
                else{
                    jTextFieldDataZakupu.setEditable(false);
