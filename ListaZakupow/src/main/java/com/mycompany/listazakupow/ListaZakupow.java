@@ -236,8 +236,7 @@ public class ListaZakupow extends javax.swing.JFrame {
         String Wartosc = jTextFieldPodajWartosc.getText();
         String KategoriaZakupu = (String) jComboBoxTypZakupionegoTowaru.getSelectedItem();
         String DataZakupu = jTextFieldDataZakupu.getText();
-        String Zapis = ("" + CoKupic + ";" + Wartosc + ";" + KategoriaZakupu + ";" + DataZakupu);
-        String Tekst = jTextAreaText.getText();
+        String Zapis = (""+CoKupic + ";" + Wartosc + ";" + KategoriaZakupu + ";" + DataZakupu);
         AktualnyText =  AktualnyText + Zapis + "\n";
         
         jTextAreaText.setText(AktualnyText);
@@ -317,9 +316,13 @@ public class ListaZakupow extends javax.swing.JFrame {
         jTextFieldPodajWartosc.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
+                
                char ch = e.getKeyChar();
                if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE){
-                   jTextFieldPodajWartosc.setEditable(true); 
+                   
+                    jTextFieldPodajWartosc.setEditable(true); 
+                 
+                   
                    //System.out.println("Naciesnieto cyfre " + ch);
                }
                else{
@@ -344,15 +347,18 @@ public class ListaZakupow extends javax.swing.JFrame {
         jTextFieldDataZakupu.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                 char ch = e.getKeyChar();
-               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE || ch == 32){
-                   jTextFieldDataZakupu.setEditable(true); 
-                   //System.out.println("Naciesnieto cyfre " + ch);
+                 String temp = jTextFieldDataZakupu.getText();
+                char ch = e.getKeyChar();
+               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE && (temp.length() < 10 || ch == KeyEvent.VK_BACK_SPACE )){
+                   jTextFieldDataZakupu.setEditable(true);
+                   if((temp.length()== 4 || temp.length() == 7) && ch !=KeyEvent.VK_BACK_SPACE){
+                       jTextFieldDataZakupu.setText(temp+'-');  
+                   }
                }
                else{
                    jTextFieldDataZakupu.setEditable(false);
                }
-                       
+                  
             }
             
 
