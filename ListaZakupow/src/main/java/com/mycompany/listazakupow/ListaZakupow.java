@@ -315,13 +315,28 @@ public class ListaZakupow extends javax.swing.JFrame {
     private void addKeyListenerTojTextFieldPodajWartosc(){
         jTextFieldPodajWartosc.addKeyListener(new KeyListener() {
             @Override
-            public void keyTyped(KeyEvent e) {
-                
+            public void keyTyped(KeyEvent e) {  
                char ch = e.getKeyChar();
-               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE){
+               String temp =  jTextFieldPodajWartosc.getText();              
+              
+               if(temp.contains(",")){
+                   String[]splitted = temp.split(",");
+                   if(splitted[1].length() < 2){
+               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE ){
                    
                     jTextFieldPodajWartosc.setEditable(true); 
-                 
+                   
+                   //System.out.println("Naciesnieto cyfre " + ch);
+               }
+               else{
+                   jTextFieldPodajWartosc.setEditable(false);
+               }
+                }
+               }
+               else{
+                    if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE || ch == 44 && temp.length() != 0){
+                   
+                    jTextFieldPodajWartosc.setEditable(true); 
                    
                    //System.out.println("Naciesnieto cyfre " + ch);
                }
@@ -329,8 +344,11 @@ public class ListaZakupow extends javax.swing.JFrame {
                    jTextFieldPodajWartosc.setEditable(false);
                }
                        
+                       
+               }
+                       
+            
             }
-
             @Override
             public void keyPressed(KeyEvent e) {
                 
@@ -349,7 +367,7 @@ public class ListaZakupow extends javax.swing.JFrame {
             public void keyTyped(KeyEvent e) {
                  String temp = jTextFieldDataZakupu.getText();
                 char ch = e.getKeyChar();
-               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE && (temp.length() < 10 || ch == KeyEvent.VK_BACK_SPACE )){
+               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE && (temp.length() <= 10 || ch == KeyEvent.VK_BACK_SPACE )){
                    jTextFieldDataZakupu.setEditable(true);
                    if((temp.length()== 4 || temp.length() == 7) && ch !=KeyEvent.VK_BACK_SPACE){
                        jTextFieldDataZakupu.setText(temp+'-');  
@@ -357,11 +375,8 @@ public class ListaZakupow extends javax.swing.JFrame {
                }
                else{
                    jTextFieldDataZakupu.setEditable(false);
-               }
-                  
-            }
-            
-
+               }               
+            }            
             @Override
             public void keyPressed(KeyEvent e) {
              
