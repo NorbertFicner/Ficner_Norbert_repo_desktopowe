@@ -22,6 +22,7 @@ public class ListaZakupow extends javax.swing.JFrame {
         addKeyListenerTojTextFieldWpiszCoKupiles();
         addKeyListenerTojTextFieldPodajWartosc();
         addKeyListenerTojjTextFieldDataZakupu();
+        addTooltipToElements();
     }
 
     /**
@@ -367,16 +368,19 @@ public class ListaZakupow extends javax.swing.JFrame {
             public void keyTyped(KeyEvent e) {
                  String temp = jTextFieldDataZakupu.getText();
                 char ch = e.getKeyChar();
-               if(ch >= '0' && ch <='9' || ch == KeyEvent.VK_BACK_SPACE && (temp.length() <= 10 || ch == KeyEvent.VK_BACK_SPACE )){
+               if(temp.length() <= 10 || ch == KeyEvent.VK_BACK_SPACE ){
+               if(ch >= '0' && ch <='9'){
                    jTextFieldDataZakupu.setEditable(true);
                    if((temp.length()== 4 || temp.length() == 7) && ch !=KeyEvent.VK_BACK_SPACE){
                        jTextFieldDataZakupu.setText(temp+'-');  
                    }
                }
+               
+            }   
                else{
                    jTextFieldDataZakupu.setEditable(false);
                }               
-            }            
+            }
             @Override
             public void keyPressed(KeyEvent e) {
              
@@ -389,7 +393,23 @@ public class ListaZakupow extends javax.swing.JFrame {
         });
         
     }
-
+    
+    private void addTooltipToElements(){
+        jTextFieldWpiszCoKupiles.setToolTipText("<html>"
+                + "<h3>Wprowadź tekst</h3>"
+                + "<p>Nie używaj polskich znkaów"
+                + "</html>");
+        jTextFieldPodajWartosc.setToolTipText("<html>"
+                + "<h3>Wprowadź wartość towaru</h3>"
+                + "Używaj tylko cyfr i przecinka"
+                + "</html>");
+        jComboBoxTypZakupionegoTowaru.setToolTipText("<html>"
+                + "<h3>Wybierz typ towaru</h3>" );
+        jTextFieldDataZakupu.setToolTipText("<html>"
+                + "<h3>Wprowadź date zakupu</h3>"
+                + "Używaj tylko cyfr"
+                + "</html>");
+    }
         
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
