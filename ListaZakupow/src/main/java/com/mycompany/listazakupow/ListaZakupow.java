@@ -7,6 +7,8 @@ package com.mycompany.listazakupow;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -241,10 +243,21 @@ public class ListaZakupow extends javax.swing.JFrame {
         AktualnyText =  AktualnyText + Zapis + "\n";
         
         jTextAreaText.setText(AktualnyText);
-        
+        String ZapiszDoPliku = jTextAreaText.getText();
         jTextFieldWpiszCoKupiles.setText("");
         jTextFieldPodajWartosc.setText("");
         jTextFieldDataZakupu.setText("");
+        
+        try{
+            FileWriter fw = new FileWriter(file_name);
+            fw.write(ZapiszDoPliku);
+            fw.close();
+        }
+        catch(IOException e){
+            System.out.println("Błąd " + e);
+        }
+        
+        
     }//GEN-LAST:event_jButtonZapiszActionPerformed
 
     /**
@@ -368,15 +381,15 @@ public class ListaZakupow extends javax.swing.JFrame {
             public void keyTyped(KeyEvent e) {
                  String temp = jTextFieldDataZakupu.getText();
                 char ch = e.getKeyChar();
-               if(temp.length() <= 10 || ch == KeyEvent.VK_BACK_SPACE ){
-               if(ch >= '0' && ch <='9'){
+
+               if(ch >= '0' && ch <='9' && temp.length() < 10 || ch == KeyEvent.VK_BACK_SPACE ){
                    jTextFieldDataZakupu.setEditable(true);
                    if((temp.length()== 4 || temp.length() == 7) && ch !=KeyEvent.VK_BACK_SPACE){
                        jTextFieldDataZakupu.setText(temp+'-');  
                    }
                }
                
-            }   
+               
                else{
                    jTextFieldDataZakupu.setEditable(false);
                }               
@@ -411,6 +424,8 @@ public class ListaZakupow extends javax.swing.JFrame {
                 + "</html>");
     }
         
+    private String file_name = "lista_zakupow.csv";
+    private String product_names = "product_names.csv";
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonZapisz;
