@@ -7,8 +7,11 @@ package com.mycompany.listazakupow;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -21,10 +24,16 @@ public class ListaZakupow extends javax.swing.JFrame {
      */
     public ListaZakupow() {
         initComponents();
+        
+        FileUtils fu = new FileUtils();
+        jTextAreaText.setText(fu.readFromFile());
+        
         addKeyListenerTojTextFieldWpiszCoKupiles();
         addKeyListenerTojTextFieldPodajWartosc();
         addKeyListenerTojjTextFieldDataZakupu();
         addTooltipToElements();
+        fillCBProducts();
+        ileProduktow();
     }
 
     /**
@@ -121,39 +130,38 @@ public class ListaZakupow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
-                        .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
-                                .addComponent(jTextFieldWpiszCoKupiles)
-                                .addGap(14, 14, 14)
-                                .addComponent(jTextFieldPodajWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
-                                .addComponent(jLabelDzisiejszeZakupy)
-                                .addGap(18, 18, 18)))
-                        .addComponent(jComboBoxTypZakupionegoTowaru, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
-                    .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
                         .addComponent(jLabelWpiszcoKup)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                         .addComponent(jLabelPodajWar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelTypZakTow, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9))
-                    .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelWydatkiZTygodnia, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelWydatkiZDzisiaj, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWprowadzZakupyLayout.createSequentialGroup()
+                        .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
+                                .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
+                                        .addComponent(jTextFieldWpiszCoKupiles)
+                                        .addGap(14, 14, 14)
+                                        .addComponent(jTextFieldPodajWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                    .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
+                                        .addComponent(jLabelDzisiejszeZakupy)
+                                        .addGap(18, 18, 18)))
+                                .addComponent(jComboBoxTypZakupionegoTowaru, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10)))
                 .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldWydatkiZDzisiaj, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButtonZapisz, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldDataZakupu, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabelDatZak, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jTextFieldWydatkiZTygodnia, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                    .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldWydatkiZDzisiaj, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButtonZapisz, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldDataZakupu, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelDatZak, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jTextFieldWydatkiZTygodnia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelWydatkiZDzisiaj))
+                    .addComponent(jLabelWydatkiZTygodnia))
+                .addGap(36, 36, 36))
         );
         jPanelWprowadzZakupyLayout.setVerticalGroup(
             jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,13 +186,13 @@ public class ListaZakupow extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelWprowadzZakupyLayout.createSequentialGroup()
-                        .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldWydatkiZDzisiaj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelWydatkiZDzisiaj))
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanelWprowadzZakupyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelWydatkiZTygodnia)
-                            .addComponent(jTextFieldWydatkiZTygodnia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelWydatkiZDzisiaj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldWydatkiZDzisiaj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabelWydatkiZTygodnia)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldWydatkiZTygodnia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -195,7 +203,7 @@ public class ListaZakupow extends javax.swing.JFrame {
         jPanelListaZakupow.setLayout(jPanelListaZakupowLayout);
         jPanelListaZakupowLayout.setHorizontalGroup(
             jPanelListaZakupowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGap(0, 547, Short.MAX_VALUE)
         );
         jPanelListaZakupowLayout.setVerticalGroup(
             jPanelListaZakupowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,7 +224,7 @@ public class ListaZakupow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,20 +243,23 @@ public class ListaZakupow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldWpiszCoKupilesActionPerformed
     String AktualnyText;
     private void jButtonZapiszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZapiszActionPerformed
-        String CoKupic = jTextFieldWpiszCoKupiles.getText();
-        String Wartosc = jTextFieldPodajWartosc.getText();
-        String KategoriaZakupu = (String) jComboBoxTypZakupionegoTowaru.getSelectedItem();
-        String DataZakupu = jTextFieldDataZakupu.getText();
-        String Zapis = (""+CoKupic + ";" + Wartosc + ";" + KategoriaZakupu + ";" + DataZakupu);
-        AktualnyText =  AktualnyText + Zapis + "\n";
+        String CoKupic = jTextFieldWpiszCoKupiles.getText().trim();
+        String Wartosc = jTextFieldPodajWartosc.getText().trim();
+        String KategoriaZakupu =jComboBoxTypZakupionegoTowaru.getSelectedItem().toString().trim();
+        String DataZakupu = jTextFieldDataZakupu.getText().trim();
+        String Zapis = (CoKupic + ";" + Wartosc + ";" + KategoriaZakupu + ";" + DataZakupu+"\n");
+        //AktualnyText =  AktualnyText + Zapis + "\n";
         
-        jTextAreaText.setText(AktualnyText);
-        String ZapiszDoPliku = jTextAreaText.getText();
+        
+     
+        String PokazWJArea = jTextAreaText.getText() + Zapis.replaceAll(";","\t");
+        jTextAreaText.setText(PokazWJArea);
+        
         jTextFieldWpiszCoKupiles.setText("");
         jTextFieldPodajWartosc.setText("");
         jTextFieldDataZakupu.setText("");
         
-        try{
+      /*  try{
             FileWriter fw = new FileWriter(file_name);
             fw.write(ZapiszDoPliku);
             fw.close();
@@ -256,8 +267,9 @@ public class ListaZakupow extends javax.swing.JFrame {
         catch(IOException e){
             System.out.println("Błąd " + e);
         }
-        
-        
+        */
+        FileUtils stf = new FileUtils();
+        stf.saveToFile(Zapis);
     }//GEN-LAST:event_jButtonZapiszActionPerformed
 
     /**
@@ -422,11 +434,34 @@ public class ListaZakupow extends javax.swing.JFrame {
                 + "<h3>Wprowadź date zakupu</h3>"
                 + "Używaj tylko cyfr"
                 + "</html>");
+        jButtonZapisz.setToolTipText("<html>"
+         + "<h3>Kliknij aby zapisać wpisane dane</h3>"
+         + "KLIKNIJ!!!"
+         + "</html>");
+        
     }
         
-    private String file_name = "lista_zakupow.csv";
-    private String product_names = "product_names.csv";
-    
+    private void fillCBProducts(){
+
+        try{
+            Scanner sc = new Scanner (new File (product_type));
+            jComboBoxTypZakupionegoTowaru.removeAllItems();
+            while(sc.hasNext()){
+                jComboBoxTypZakupionegoTowaru.addItem(sc.nextLine());
+        }
+        }
+            catch (FileNotFoundException ex) {
+            System.out.print(ex.toString());
+        }
+        ArtyicleType atu = new ArtyicleType();  
+       
+        
+          }
+    private void ileProduktow(){
+        HowManyProducts hmpro = new HowManyProducts();
+        hmpro.ileProduktow();
+    }
+    private String product_type = "produkty.txt";
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonZapisz;
     private javax.swing.JComboBox<String> jComboBoxTypZakupionegoTowaru;
