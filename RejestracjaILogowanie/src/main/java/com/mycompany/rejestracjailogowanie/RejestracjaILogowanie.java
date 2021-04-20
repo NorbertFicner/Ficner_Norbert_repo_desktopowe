@@ -163,7 +163,7 @@ public class RejestracjaILogowanie extends javax.swing.JFrame {
 
         jLabelZleDaneRejestracja.setBackground(new java.awt.Color(255, 255, 255));
         jLabelZleDaneRejestracja.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelZleDaneRejestracja.setText("Wprowadzono źle dane | Wprowadź dane od nowa ");
+        jLabelZleDaneRejestracja.setText("Wprowadzono źle dane | Wprowadź poprawnie dane");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
