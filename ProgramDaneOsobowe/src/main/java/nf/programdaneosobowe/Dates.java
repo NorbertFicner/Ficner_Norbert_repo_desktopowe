@@ -10,5 +10,19 @@ package nf.programdaneosobowe;
  * @author zalman
  */
 public class Dates {
+    private String name,surname,classOfSchool,yearOfStarEducation;
+
+    public Dates(String name, String surname, String classOfSchool, String yearOfStarEducation) {
+        this.name = name;
+        this.surname = surname;
+        this.classOfSchool = classOfSchool;
+        this.yearOfStarEducation = yearOfStarEducation;
+    }
+
+    @Override
+    public String toString() {
+        return "Name " + name + " Surname " + surname + " Class " + classOfSchool + " Year Of Star Education " + yearOfStarEducation ;
+    }
+    
     
 }
