@@ -5,7 +5,10 @@
  */
 package nf.programdaneosobowe;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 
 /**
@@ -15,8 +18,9 @@ import javax.swing.DefaultListModel;
 public class MainWindow extends javax.swing.JFrame {
     
     
-    ArrayList<Dates> list = new ArrayList<Dates>();
+    ArrayList<Data> list = new ArrayList<Data>();
     DefaultListModel dlm = new DefaultListModel ();
+    SaveToFile stf = new SaveToFile();
 
     /**
      * Creates new form MainWindow
@@ -90,9 +94,14 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonAddDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddDatesActionPerformed
         AddDatesDialog adt = new AddDatesDialog(this,rootPaneCheckingEnabled);
         adt.setVisible(true);
-        list.add(adt.getDates());
-        dlm.addElement(adt.getDates());
+        list.add(adt.getData());
+        dlm.addElement(adt.getData());
         jList1.setModel(dlm);
+        try {
+            stf.saveToFile(list);
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         adt = null;
     }//GEN-LAST:event_jButtonAddDatesActionPerformed
 

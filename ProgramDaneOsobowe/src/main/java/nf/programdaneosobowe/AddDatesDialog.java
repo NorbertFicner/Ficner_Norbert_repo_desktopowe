@@ -152,8 +152,8 @@ public class AddDatesDialog extends javax.swing.JDialog {
        yearOfStarEducation = jTextFieldYearOfStartEduaction.getText();
        setVisible(false);
     }//GEN-LAST:event_jButtonAddActionPerformed
-    public Dates getDates(){
-        return new Dates(name, surname, classOfSchool, yearOfStarEducation);
+    public Data getData(){
+        return new Data(name, surname, classOfSchool, yearOfStarEducation);
     }
 
 
