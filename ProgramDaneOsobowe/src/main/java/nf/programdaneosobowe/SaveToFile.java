@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class SaveToFile {
     public void saveToFile(ArrayList<Data> list) throws IOException{
-        File f = new File("Dates.csv");
+        File f = new File("Data.csv");
         
         FileWriter fw = new FileWriter(f);
         for(int i=0;i<list.size();i++){
