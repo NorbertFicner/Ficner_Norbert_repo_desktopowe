@@ -5,11 +5,14 @@
  */
 package nf.programdaneosobowe;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,13 +24,34 @@ public class MainWindow extends javax.swing.JFrame {
     ArrayList<Data> list = new ArrayList<Data>();
     DefaultListModel dlm = new DefaultListModel ();
     SaveToFile stf = new SaveToFile();
+    DownloadFromFile dff = new DownloadFromFile();
 
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
-    }
+        DownloadFromFile();
+        
+        jList1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                showPopup(e);
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                showPopup(e);
+            }
+            private void showPopup(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    jPopupMenu.show(e.getComponent(),
+                            e.getX(), e.getY());
+                }
+            }
+        });
+        
+       
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,10 +62,29 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu = new javax.swing.JPopupMenu();
+        jMenuItemDelete = new javax.swing.JMenuItem();
+        jMenuItemEdit = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jButtonAddDates = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+
+        jMenuItemDelete.setText("Delete");
+        jMenuItemDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDeleteActionPerformed(evt);
+            }
+        });
+        jPopupMenu.add(jMenuItemDelete);
+
+        jMenuItemEdit.setText("Edit");
+        jMenuItemEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEditActionPerformed(evt);
+            }
+        });
+        jPopupMenu.add(jMenuItemEdit);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,6 +148,38 @@ public class MainWindow extends javax.swing.JFrame {
         adt = null;
     }//GEN-LAST:event_jButtonAddDatesActionPerformed
 
+    private void jMenuItemDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDeleteActionPerformed
+        int choose = JOptionPane.showConfirmDialog(null,"Czy ususnac?");
+        if(choose == 0){
+            int index = jList1.getSelectedIndex();
+            dlm.removeElementAt(index);
+            list.remove(index);
+        }
+       
+    }//GEN-LAST:event_jMenuItemDeleteActionPerformed
+
+    private void jMenuItemEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditActionPerformed
+        EditDataDialog edt = new EditDataDialog(this, rootPaneCheckingEnabled);
+        edt.setVisible(true);
+        int index = jList1.getSelectedIndex();
+        
+        
+        
+        edt = null;
+    }//GEN-LAST:event_jMenuItemEditActionPerformed
+    private void DownloadFromFile(){
+        try {
+            list = dff.downloadFromFile();
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            for(int i =0;i<list.size();i++){
+                dlm.addElement(list.get(i));
+            }
+        jList1.setModel(dlm);
+    }
+        
+        
     /**
      * @param args the command line arguments
      */
@@ -143,7 +218,10 @@ public class MainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddDates;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JMenuItem jMenuItemDelete;
+    private javax.swing.JMenuItem jMenuItemEdit;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

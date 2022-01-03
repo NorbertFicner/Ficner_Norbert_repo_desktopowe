@@ -9,12 +9,12 @@ package nf.programdaneosobowe;
  *
  * @author zalman
  */
-public class AddDatesDialog extends javax.swing.JDialog {
+public class EditDataDialog extends javax.swing.JDialog {
     private String name,surname,classOfSchool,yearOfStartEducation;
     /**
-     * Creates new form AddDatesDialog
+     * Creates new form EditDataDialog
      */
-    public AddDatesDialog(java.awt.Frame parent, boolean modal) {
+    public EditDataDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -37,7 +37,7 @@ public class AddDatesDialog extends javax.swing.JDialog {
         jTextFieldSurname = new javax.swing.JTextField();
         jTextFieldClass = new javax.swing.JTextField();
         jTextFieldYearOfStartEduaction = new javax.swing.JTextField();
-        jButtonAdd = new javax.swing.JButton();
+        jButtonEdit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -66,11 +66,11 @@ public class AddDatesDialog extends javax.swing.JDialog {
 
         jTextFieldYearOfStartEduaction.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jButtonAdd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButtonAdd.setText("ADD");
-        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEdit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButtonEdit.setText("EDIT");
+        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddActionPerformed(evt);
+                jButtonEditActionPerformed(evt);
             }
         });
 
@@ -104,7 +104,7 @@ public class AddDatesDialog extends javax.swing.JDialog {
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextFieldYearOfStartEduaction, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButtonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -127,8 +127,8 @@ public class AddDatesDialog extends javax.swing.JDialog {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldYearOfStartEduaction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,30 +145,64 @@ public class AddDatesDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-       name = jTextFieldName.getText();
-       surname = jTextFieldSurname.getText();
-       classOfSchool = jTextFieldClass.getText();
-       yearOfStartEducation = jTextFieldYearOfStartEduaction.getText();
-       setVisible(false);
-    }//GEN-LAST:event_jButtonAddActionPerformed
-    public Data getData(){
-        return new Data(name, surname, classOfSchool, yearOfStartEducation);
-    }
-
-
-
     private void jTextFieldSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSurnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSurnameActionPerformed
 
+    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+        name = jTextFieldName.getText();
+        surname = jTextFieldSurname.getText();
+        classOfSchool = jTextFieldClass.getText();
+        yearOfStartEducation = jTextFieldYearOfStartEduaction.getText();
+        setVisible(false);
+    }//GEN-LAST:event_jButtonEditActionPerformed
+        public Data getData(){
+        return new Data(name, surname, classOfSchool, yearOfStartEducation);
+    }
     /**
      * @param args the command line arguments
      */
-   
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(EditDataDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(EditDataDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(EditDataDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(EditDataDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                EditDataDialog dialog = new EditDataDialog(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonEdit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -21,7 +21,7 @@ public class Data {
 
     @Override
     public String toString() {
-        return "Name - " + name + "; Surname - " + surname + "; Class - " + classOfSchool + "; Year Of Star Education - " + yearOfStarEducation ;
+        return "Name - " + name + ";Surname - " + surname + ";Class - " + classOfSchool + ";Year Of Star Education - " + yearOfStarEducation ;
     }
     
     
