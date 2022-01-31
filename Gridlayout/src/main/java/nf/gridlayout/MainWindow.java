@@ -171,6 +171,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanelActions.setBackground(new java.awt.Color(102, 102, 255));
         jPanelActions.setLayout(new java.awt.GridLayout(3, 3));
 
+        jButtonPlus.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jButtonPlus.setText("+");
         jButtonPlus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,6 +180,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jPanelActions.add(jButtonPlus);
 
+        jButtonMinus.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jButtonMinus.setText("-");
         jButtonMinus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,15 +189,19 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jPanelActions.add(jButtonMinus);
 
+        jButtonMultiple.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jButtonMultiple.setText("x");
         jPanelActions.add(jButtonMultiple);
 
+        jButtonDivide.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jButtonDivide.setText("/");
         jPanelActions.add(jButtonDivide);
 
+        jButtonPot.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jButtonPot.setText("pot");
         jPanelActions.add(jButtonPot);
 
+        jButtonSqrt.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jButtonSqrt.setText("√");
         jPanelActions.add(jButtonSqrt);
 
