@@ -58,6 +58,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanelScreen.setBackground(new java.awt.Color(255, 102, 102));
         jPanelScreen.setLayout(new java.awt.GridLayout());
 
+        jTextField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jPanelScreen.add(jTextField);
 
