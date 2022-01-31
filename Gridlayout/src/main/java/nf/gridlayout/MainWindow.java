@@ -10,7 +10,7 @@ package nf.gridlayout;
  * @author zalman
  */
 public class MainWindow extends javax.swing.JFrame {
-    String number;
+    String number = "";
     Actions ac = new Actions();
     /**
      * Creates new form MainWindow
@@ -35,9 +35,9 @@ public class MainWindow extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButtonC = new javax.swing.JButton();
@@ -101,17 +101,8 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jPanelNumbers.add(jButton4);
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton7.setText("5");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jPanelNumbers.add(jButton7);
-
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton5.setText("6");
+        jButton5.setText("5");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -120,13 +111,22 @@ public class MainWindow extends javax.swing.JFrame {
         jPanelNumbers.add(jButton5);
 
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton6.setText("7");
+        jButton6.setText("6");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
         jPanelNumbers.add(jButton6);
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jButton7.setText("7");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanelNumbers.add(jButton7);
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jButton8.setText("8");
@@ -264,11 +264,6 @@ public class MainWindow extends javax.swing.JFrame {
         jTextField.setText(jTextField.getText()+"4");
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        number = number + "7";
-        jTextField.setText(jTextField.getText()+"7");
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         number = number + "5";
         jTextField.setText(jTextField.getText()+"5");
@@ -278,6 +273,11 @@ public class MainWindow extends javax.swing.JFrame {
         number = number + "6";
         jTextField.setText(jTextField.getText()+"6");
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        number = number + "7";
+        jTextField.setText(jTextField.getText()+"7");
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         number = number + "8";
@@ -298,6 +298,7 @@ public class MainWindow extends javax.swing.JFrame {
         ac.setNumber1(Double.parseDouble(number)); 
         ac.plus();
         jTextField.setText("");
+        number = "";
     }//GEN-LAST:event_jButtonPlusActionPerformed
 
     private void jButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinusActionPerformed
@@ -305,7 +306,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonMinusActionPerformed
 
     private void jButtonEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButtonEqualActionPerformed
 
     /**
