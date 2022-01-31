@@ -10,7 +10,7 @@ package nf.gridlayout;
  * @author zalman
  */
 public class MainWindow extends javax.swing.JFrame {
-    double number1, number2,equal;
+    String number;
     Actions ac = new Actions();
     /**
      * Creates new form MainWindow
@@ -29,7 +29,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelScreen = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField = new javax.swing.JTextField();
         jPanelNumbers = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -58,8 +58,8 @@ public class MainWindow extends javax.swing.JFrame {
         jPanelScreen.setBackground(new java.awt.Color(255, 102, 102));
         jPanelScreen.setLayout(new java.awt.GridLayout());
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jPanelScreen.add(jTextField1);
+        jTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jPanelScreen.add(jTextField);
 
         jPanelNumbers.setBackground(new java.awt.Color(255, 204, 102));
         jPanelNumbers.setLayout(new java.awt.GridLayout(4, 3));
@@ -171,9 +171,19 @@ public class MainWindow extends javax.swing.JFrame {
         jPanelActions.setLayout(new java.awt.GridLayout(3, 3));
 
         jButtonPlus.setText("+");
+        jButtonPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPlusActionPerformed(evt);
+            }
+        });
         jPanelActions.add(jButtonPlus);
 
         jButtonMinus.setText("-");
+        jButtonMinus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMinusActionPerformed(evt);
+            }
+        });
         jPanelActions.add(jButtonMinus);
 
         jButtonMultiple.setText("x");
@@ -192,6 +202,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         jButtonEqual.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jButtonEqual.setText("=");
+        jButtonEqual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEqualActionPerformed(evt);
+            }
+        });
         jPanelEqual.add(jButtonEqual);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -223,48 +238,74 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCActionPerformed
-        
+        number = number + "";
+        ac.clear();
+        jTextField.setText("");
     }//GEN-LAST:event_jButtonCActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        number = number + "1";
+        jTextField.setText(jTextField.getText()+"1");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        number = number + "2";
+        jTextField.setText(jTextField.getText()+"2");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        number = number + "3";
+        jTextField.setText(jTextField.getText()+"3");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        number = number + "4";
+        jTextField.setText(jTextField.getText()+"4");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        number = number + "7";
+        jTextField.setText(jTextField.getText()+"7");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        number = number + "5";
+        jTextField.setText(jTextField.getText()+"5");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        number = number + "6";
+        jTextField.setText(jTextField.getText()+"6");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        number = number + "8";
+        jTextField.setText(jTextField.getText()+"8");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        number = number + "9";
+        jTextField.setText(jTextField.getText()+"9");
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton0ActionPerformed
-        // TODO add your handling code here:
+        number = number + "0";
+        jTextField.setText(jTextField.getText()+"0");
     }//GEN-LAST:event_jButton0ActionPerformed
+
+    private void jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusActionPerformed
+        ac.setNumber1(Double.parseDouble(number)); 
+        ac.plus();
+        jTextField.setText("");
+    }//GEN-LAST:event_jButtonPlusActionPerformed
+
+    private void jButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonMinusActionPerformed
+
+    private void jButtonEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEqualActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,6 +366,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelEqual;
     private javax.swing.JPanel jPanelNumbers;
     private javax.swing.JPanel jPanelScreen;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField;
     // End of variables declaration//GEN-END:variables
 }
