@@ -24,11 +24,18 @@ public class DownloadFromFile {
         while(sc.hasNext()){
            data = sc.nextLine();
            String[]dataTab = data.split(";");
+  
            name = dataTab[0];
            surname = dataTab[1];
            classOfSchool = dataTab[2];
            yearOfStartEducation = dataTab[3];
-           Data data = new Data(name, surname, classOfSchool, yearOfStartEducation);
+           
+           String nametab[] = name.split(" - ");
+           String surnametab[] = surname.split(" - ");
+           String classofSchooltab[] = classOfSchool.split(" - ");
+           String yearOfStarEducationtab[] = yearOfStartEducation.split(" - ");
+
+           Data data = new Data(nametab[1], surnametab[1], classofSchooltab[1], yearOfStarEducationtab[1]);
            
            list.add(data);
         }
